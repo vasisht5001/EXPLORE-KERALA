@@ -20,11 +20,17 @@ app.get('/',(req,res)=>{
 })
 app.use(express.static('public'))
 app.use(cookieParser())
-const corsOptoins={
-    origin:true,
-    credentials:true
-}
-app.use(cors(corsOptoins))
+// const corsOptoins={
+//     origin:true,
+//     credentials:true
+// }
+// app.use(cors(corsOptoins))
+
+const corsOptoins = {
+    origin:"https://explore-kerala-frontend.onrender.com"
+    credentials: true // Allow cookies to be sent
+};
+app.use(cors(corsOptoins));
 
 
 
