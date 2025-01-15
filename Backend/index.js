@@ -27,7 +27,7 @@ app.use(cookieParser())
 // app.use(cors(corsOptoins))
 
 const corsOptoins = {
-    origin:"https://explore-kerala-frontend.onrender.com"
+     origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Use environment variable for flexibility
     credentials: true // Allow cookies to be sent
 };
 app.use(cors(corsOptoins));
