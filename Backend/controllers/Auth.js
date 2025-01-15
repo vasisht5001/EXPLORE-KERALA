@@ -70,19 +70,36 @@ const Login = async (req, res) => {
     }
 };
 
-const Logout=async(req,res)=>{
-    try {
-        // Clear the token cookie
-        res.clearCookie('token');
+// const Logout=async(req,res)=>{
+//     try {
+//         // Clear the token cookie
+//         res.clearCookie('token');
 
-        // Return success message
-        res.status(200).json({ message: "Logout successfull" });
+//         // Return success message
+//         res.status(200).json({ message: "Logout successfull" });
+//     } catch (error) {
+//         // Handle error
+//         console.error("Error logging out:", error);
+//         res.status(500).json({ message: "Internal Server Error" });
+//     }
+// }
+
+
+
+const Logout = async (req, res) => {
+    try {
+        res.clearCookie('token');
+        res.status(200).json({ message: "Logout successful" });
+
+        // Redirect to frontend login page if required
+        // res.redirect(process.env.FRONTEND_URL + '/login');
     } catch (error) {
-        // Handle error
         console.error("Error logging out:", error);
         res.status(500).json({ message: "Internal Server Error" });
     }
-}
+};
+
+
 
 
 
